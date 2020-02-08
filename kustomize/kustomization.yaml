@@ -1,0 +1,8 @@
+---
+resources:
+  - calico.yaml
+images:
+  - name: calico/node
+    newName: logan2211/calico-node-baremetal
+patchesStrategicMerge:
+  - calico-bgp-passthru-comm.yaml

@@ -1,0 +1,16 @@
+---
+# This can be used to set a "passthru" community, which will allow downstream
+# peers (ie MetalLB) to announce prefixes through calico-node without requiring
+# a calico IPPool resource to be created for each MetalLB prefix
+kind: DaemonSet
+apiVersion: apps/v1
+metadata:
+  name: calico-node
+spec:
+  template:
+    spec:
+      containers:
+        - name: calico-node
+          env:
+            - name: BGP_PASSTHRU_COMMUNITY
+              value: "100"
